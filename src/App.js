@@ -168,6 +168,34 @@ export default function App(props) {
     handleOrderNumber(response.id);
   }
 
+  function reset() {
+    setPaymentMethod("");
+    setIsPaying(false);
+    setCheckingOut(false);
+    setOrderStatus(false);
+    setBeersInOrder([]);
+
+    beersOnTap.current = cards.map((c) => {
+      return [
+        c[0],
+        {
+          name: c[1].name,
+          desc: c[1].desc,
+          alc: c[1].alc,
+          image: c[1].image,
+          popular: c[1].popular,
+          price: c[1].price,
+          type: c[1].type,
+          amount: 0,
+        },
+      ];
+    });
+    setBeersInOrder([]);
+    setCards(beersOnTap.current);
+    console.log(cards);
+    console.log("beersontap", beersOnTap.current);
+  }
+
   function handleOrderNumber(id) {
     let orderId = id.toString();
     if (orderId.length === 1) {
@@ -227,6 +255,7 @@ export default function App(props) {
             cards={cardsInUse}
             total={total}
             cardInformation={cardInformation}
+            reset={reset}
           />
         ) : isPaying ? (
           <Payment

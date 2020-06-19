@@ -11,7 +11,9 @@ export default function OrderConfirmation(props) {
     return tickets;
   }
 
-  const tickets = importAll(require.context("./assets/tickets_withhand", true, /\.png/));
+  const tickets = importAll(
+    require.context("./assets/tickets_withhand", true, /\.png/)
+  );
 
   function setViewOrder() {
     setView(!viewOrder);
@@ -38,7 +40,9 @@ export default function OrderConfirmation(props) {
           <div className="payment-details">
             <h4>Payment Details</h4>
             <p className="confirmation-name">{props.cardInformation.name}</p>
-            <p className="confirmation-number">{props.cardInformation.number}</p>
+            <p className="confirmation-number">
+              {props.cardInformation.number}
+            </p>
           </div>
         </>
       ) : (
@@ -48,8 +52,18 @@ export default function OrderConfirmation(props) {
             Your order number is
             <span className="order-nr"> {props.orderNumber}</span>
           </h2>
-          <p className="confirmation-text">Keep an eye on the dashboard - once your number reaches one of our bartenders - go ahead and grab your drinks at the bar!</p>
-          <img className="ticket" src={tickets[`ticket_${props.orderNumber}.png`]} alt="Your order number" />
+          <p className="confirmation-text">
+            Keep an eye on the dashboard - once your number reaches one of our
+            bartenders - go ahead and grab your drinks at the bar!
+          </p>
+          <img
+            className="ticket"
+            src={tickets[`ticket_${props.orderNumber}.png`]}
+            alt="Your order number"
+          />
+          <button id="return-to-menu" onClick={props.reset}>
+            PLACE ANOTHER ORDER
+          </button>
         </>
       )}
       <button id="view-order" onClick={setViewOrder}>

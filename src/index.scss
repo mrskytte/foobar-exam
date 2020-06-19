@@ -467,6 +467,12 @@ table th {
   margin-left: 0.5em;
 }
 
+.errortext {
+  color: lighten($color: #ff0000, $amount: 10%);
+  font-size: 12px;
+  padding: 0.2em 0 0 0.5em;
+}
+
 #card-wrapper {
   margin-top: 2em;
 }
@@ -532,6 +538,17 @@ table th {
 #security-code,
 #expiry-date {
   width: 100%;
+}
+
+#return-to-menu {
+  font-family: $bold-font;
+  background-color: $primaty-color;
+  margin-left: 25%;
+  margin-top: 20%;
+  width: 50%;
+  height: 10%;
+  font-size: 16px;
+  border: 1px solid $secondary-color;
 }
 
 #submit {
