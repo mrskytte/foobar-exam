@@ -134,6 +134,11 @@ export default function CreditCardForm(props) {
                 cardValidity === "" ? "" : cardValidity ? "valid" : "invalid"
               }
             />
+            {!cardValidity && cardValidity !== "" ? (
+              <p className="errortext">This doesn't look like a card number</p>
+            ) : (
+              <></>
+            )}
           </label>
           <label id="card-name" htmlFor="CCname" onBlur={checkValidity}>
             Full Name
@@ -146,6 +151,11 @@ export default function CreditCardForm(props) {
                 nameValidity === "" ? "" : nameValidity ? "valid" : "invalid"
               }
             />
+            {!nameValidity && nameValidity !== "" ? (
+              <p className="errortext">Please fill in your name</p>
+            ) : (
+              <></>
+            )}
           </label>
           <label id="expiry-date" htmlFor="CCexpiry" onBlur={checkValidity}>
             Expiry Date
@@ -162,6 +172,11 @@ export default function CreditCardForm(props) {
                   : "invalid"
               }
             />
+            {!expireValidity && expireValidity !== "" ? (
+              <p className="errortext">Format is MM/YY(YY)</p>
+            ) : (
+              <></>
+            )}
           </label>
           <label id="security-code" htmlFor="CCcvc" onBlur={checkValidity}>
             Security Number
@@ -174,6 +189,11 @@ export default function CreditCardForm(props) {
                 cvcValidity === "" ? "" : cvcValidity ? "valid" : "invalid"
               }
             />
+            {!cvcValidity && cvcValidity !== "" ? (
+              <p className="errortext">This is the cvc number</p>
+            ) : (
+              <></>
+            )}
           </label>
           <input
             onClick={confirmOrder}
