@@ -3,7 +3,7 @@ import Anime, { anime } from "react-anime";
 
 export default function Frontpage(props) {
   const lastOrder = localStorage.getItem("lastOrder");
-  const [loadDone, setLoadStatus] = useState(false);
+  const [MinimumLoadTimeDone, setMinimumLoadTime] = useState(false);
 
   useEffect(() => {
     setTimeout(showPage, 2000);
@@ -11,7 +11,7 @@ export default function Frontpage(props) {
 
   function showPage() {
     if (!lastOrder) {
-      setLoadStatus(true);
+      setMinimumLoadTime(true);
       props.setFrontpageStatus(false);
     }
   }
@@ -22,12 +22,15 @@ export default function Frontpage(props) {
       props.setAmount(oneItem.name, oneItem.amount)
     );
     props.addLastOrder(lastOrder);
-    setLoadStatus(true);
+    setMinimumLoadTime(true);
     props.setFrontpageStatus(false);
   }
 
   return (
-    <div id="frontpage" className={loadDone ? "hidden" : "visible"}>
+    <div
+      id="frontpage"
+      className={MinimumLoadTimeDone && props.loadDone ? "hidden" : "visible"}
+    >
       {lastOrder ? (
         <>
           <h1>HEY AGAIN!</h1>
@@ -39,7 +42,7 @@ export default function Frontpage(props) {
             <button onClick={addLastOrder}>REPEAT LAST ROUND?</button>
             <button
               onClick={() => {
-                setLoadStatus(true);
+                setMinimumLoadTime(true);
                 props.setFrontpageStatus(false);
               }}
             >

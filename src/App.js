@@ -24,6 +24,7 @@ export default function App(props) {
   const [cardInformation, setCardInformation] = useState({});
   const [showFrontpage, setFrontpageStatus] = useState(true);
   const [beersInOrder, setBeersInOrder] = useState([]);
+  const [loadDone, setLoadStatus] = useState(false);
 
   let cardsInUse = [];
   let beersOnTap = useRef("");
@@ -40,6 +41,7 @@ export default function App(props) {
       });
       beersOnTap.current = beersArray.filter((beer) => taps.includes(beer[0]));
       setCards(beersOnTap.current);
+      setLoadStatus(true);
     }
   }, []);
 
@@ -235,6 +237,7 @@ export default function App(props) {
         addLastOrder={addLastOrder}
         setAmount={setAmount}
         setFrontpageStatus={setFrontpageStatus}
+        loadDone={loadDone}
       />
       {orderConfirmed ? (
         <></>
