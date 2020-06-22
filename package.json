@@ -1,8 +1,8 @@
 {
-  "name": "foobar-order",
+  "name": "foobar-exam",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mrskytte.github.io/foobar-order",
+  "homepage": "http://mrskytte.github.io/foobar-exam",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
