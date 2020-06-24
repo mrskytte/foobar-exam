@@ -9,10 +9,15 @@ export default function Frontpage(props) {
     setTimeout(showPage, 2000);
   }, []);
 
+  useEffect(() => {
+    if (MinimumLoadTimeDone && props.loadDone) {
+      props.setFrontpageStatus(false);
+    }
+  }, [MinimumLoadTimeDone, props.loadDone]);
+
   function showPage() {
     if (!lastOrder) {
       setMinimumLoadTime(true);
-      props.setFrontpageStatus(false);
     }
   }
 

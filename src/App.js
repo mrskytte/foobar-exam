@@ -194,8 +194,6 @@ export default function App(props) {
     });
     setBeersInOrder([]);
     setCards(beersOnTap.current);
-    console.log(cards);
-    console.log("beersontap", beersOnTap.current);
   }
 
   function handleOrderNumber(id) {
